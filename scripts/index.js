@@ -142,6 +142,9 @@ function isWinner() {
 
             let currentPlayerText = document.querySelector('.board___player-turn');
             if (currentPlayer() === 'X') {
+                axios.post('http://localhost:3013/winner', {
+                    winnerName: playerX.name
+                })
                 currentPlayerText.innerHTML = `
           <div class="congratulations">Congratulations ${playerX.name}</div>
           <div class="u-r-winner">You are our winner!</div>
@@ -150,6 +153,9 @@ function isWinner() {
                 removeCellClickListener();
                 return true;
             } else {
+                axios.post('http://localhost:3013/winner', {
+                    winnerName: playerY.name
+                })
                 currentPlayerText.innerHTML = `
           <div class="congratulations">Congratulations ${playerY.name}</div>
           <div class="u-r-winner">You are our winner!</div>
