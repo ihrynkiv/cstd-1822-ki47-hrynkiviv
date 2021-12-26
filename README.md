@@ -12,13 +12,9 @@
 
 *Hrynkiv Ivan KI-47*
 
-**student number - 6**
 
----
+**student number - 6**
 
  - you do not need build this project
  - open index.html in your browser
  - version 0.13
-
-
-
