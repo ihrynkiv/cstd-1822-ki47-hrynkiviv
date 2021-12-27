@@ -28,3 +28,11 @@ You should execute:
 
 or run file:
 `ci.sh`
+
+___
+###Game modes:
+There are two game modes:
+ - One player vs Computer
+ - Two players
+
+You should use menu for choosing right mode
