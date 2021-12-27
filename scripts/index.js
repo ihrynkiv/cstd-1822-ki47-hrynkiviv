@@ -42,11 +42,6 @@ function addPlayers(event) {
     buildBoard();
 }
 
-// RETURN CURRENT PLAYER
-function currentPlayer() {
-    return turn % 2 === 0 ? 'X' : 'O';
-}
-
 // Resize squares in event browser is resized
 window.addEventListener("resize", onResize);
 function onResize() {
@@ -79,11 +74,11 @@ function makeMove(event) {
         console.log('This cell is already taken.');
         return;
     } else {
-        if (currentPlayer() === 'X') {
-            cellToAddToken.textContent = currentPlayer();
+        if (currentPlayer(turn) === 'X') {
+            cellToAddToken.textContent = currentPlayer(turn);
             gameBoard[currentCell] = 'X';
         } else {
-            cellToAddToken.textContent = currentPlayer();
+            cellToAddToken.textContent = currentPlayer(turn);
             gameBoard[currentCell] = 'O';
         }
     }
@@ -96,12 +91,6 @@ function makeMove(event) {
 
     // CHANGE BOARD HEADER INFO
     changeBoardHeaderNames();
-}
-
-function checkIfTie() {
-    if (turn > 7) {
-        alert('game over a tie')
-    }
 }
 
 function isWinner() {
@@ -121,9 +110,9 @@ function isWinner() {
         let cell2 = winningCombos[1];
         let cell3 = winningCombos[2];
         if (
-            gameBoard[cell1] === currentPlayer() &&
-            gameBoard[cell2] === currentPlayer() &&
-            gameBoard[cell3] === currentPlayer()
+            gameBoard[cell1] === currentPlayer(turn) &&
+            gameBoard[cell2] === currentPlayer(turn) &&
+            gameBoard[cell3] === currentPlayer(turn)
         ) {
 
 
@@ -141,7 +130,7 @@ function isWinner() {
             });
 
             let currentPlayerText = document.querySelector('.board___player-turn');
-            if (currentPlayer() === 'X') {
+            if (currentPlayer(turn) === 'X') {
                 axios.post('http://localhost:3013/winner', {
                     winnerName: playerX.name
                 })
@@ -168,7 +157,8 @@ function isWinner() {
     });
 
     if (!winner) {
-        checkIfTie();
+        const message = checkIfTie(turn);
+        message && alert(message)
     }
 
     return false;
@@ -177,17 +167,11 @@ function isWinner() {
 function changeBoardHeaderNames() {
     if (!winner) {
         let currentPlayerText = document.querySelector('.board___player-turn');
-        if (currentPlayer() === 'X') {
+        const winnerName = getWinnerName(turn, {playerX, playerY})
             currentPlayerText.innerHTML = `
-        <span class="name--style">${playerX.name}</span>, you are up!
+        <span class="name--style">${winnerName}</span>, you are up!
         <div class="u-r-winner"></div>
       `
-        }  else {
-            currentPlayerText.innerHTML = `
-        <span class="name--style">${playerY.name}</span>, you are up.
-        <div class="u-r-winner"></div>
-      `
-        }
     }
 }
 
