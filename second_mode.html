@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/second_mode.css">
+    <title>TicTacToe</title>
+</head>
+<body>
+<div class="container">
+    <div class="row text-center" id="intro-section">
+        <h1>Player vs Computer Tic-Tac-Toe</h1>
+        <h2 class="message">Choose your player:</h2>
+        <form action="#">
+            <fieldset>
+                <input type="radio" name="player-choice" id="player-choice-1" value="X" />
+                <label for="player-choice-1">X</label>
+                <input type="radio" name="player-choice" id="player-choice-2" value="O" />
+                <label for="player-choice-2">O</label>
+            </fieldset>
+            <button id="reset" class="btn btn-primary">Reset</button>
+        </form>
+    </div>
+    <div class="row" id="grid-section">
+        <ul id="grid"></ul>
+    </div>
+    </div>
+</body>
+<script defer src="scripts/second_mode.js"></script>
+</html>

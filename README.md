@@ -17,7 +17,7 @@
 
  - you do not need build this project
  - open index.html in your browser
- - version 0.13
+ - version 0.14
 
 ___
 
@@ -28,3 +28,11 @@ You should execute:
 
 or run file:
 `ci.sh`
+
+___
+###Game modes:
+There are two game modes:
+ - One player vs Computer
+ - Two players
+
+You should use menu for choosing right mode
