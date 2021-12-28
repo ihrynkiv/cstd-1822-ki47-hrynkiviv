@@ -1,0 +1,1 @@
+CREATE TABLE game(winnerName VARCHAR);
