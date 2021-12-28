@@ -29,7 +29,7 @@ app.use("/",router);
 
 router.post('/winner', (req, res) => {
   const winnerName = req.body.winnerName;
-  const text = 'INSERT INTO tictactoe(winnerName) VALUES($1) RETURNING *'
+  const text = 'INSERT INTO game(winnerName) VALUES($1) RETURNING *'
   client.query(text, winnerName, (err, res) => {
     if (err) {
       console.log(err.stack)
