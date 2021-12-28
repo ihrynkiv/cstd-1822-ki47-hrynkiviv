@@ -17,7 +17,7 @@
 
  - you do not need build this project
  - open index.html in your browser
- - version 0.14
+ - version 0.15
 
 ___
 
@@ -36,3 +36,8 @@ There are two game modes:
  - Two players
 
 You should use menu for choosing right mode
+
+___
+
+###New in version 0.15:
+ - Connected server to PostrgeSQL DataBase 
